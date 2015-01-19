@@ -5,10 +5,14 @@ import sys
 def input_check(main_list):
     correct_entry_dict = {"+":3,"-":3,"*":3,"/":3,"square":2,"cube":2,"pow":3,"mod":3}
 
-    if len(main_list) == correct_entry_dict[main_list[0]]:
-        print "Incorrect number of inputs. Please try again."
+    if len(main_list) < correct_entry_dict[main_list[0]]:
+        print "Incorrect number of inputs. Please add more."
+        return False
+    elif len(main_list) > correct_entry_dict[main_list[0]]:
+        print "Incorrect number of inputs. Please remove some."
+        return False
     else:
-        return main_list
+        return True
 
 def evaluate(list2):
     operator = list2[0]
@@ -16,11 +20,11 @@ def evaluate(list2):
 
     if operator in dict_of_functions:
         if len(list2) == 3:
-            return dict_of_functions[operator](float(list2[1]), float(list2[2]))
+            print dict_of_functions[operator](float(list2[1]), float(list2[2]))
         else:
-            return dict_of_functions[operator](float(list2[1]))
+            print dict_of_functions[operator](float(list2[1]))
     else:
-        return "I don't understand! Please input valid operator."
+        print "I don't understand! Please input valid operator."
 
 
 def main():
@@ -30,9 +34,10 @@ def main():
            sys.exit()
         else:
             main_list = string.split()
-            input_check(main_list)
-            output = evaluate(main_list)
-            print output
+            if input_check(main_list) == True:
+                evaluate(main_list) 
+            else:
+                continue
 
 if __name__ == '__main__':
     main()
