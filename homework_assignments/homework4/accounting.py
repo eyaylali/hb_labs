@@ -1,49 +1,35 @@
-melon_cost = 1.00
+def check_payment_difference(cust_name, num_melons, amount_paid, melon_cost = 1.00):
+	total_cost = melon_cost * num_melons
 
-customer1_name = "Joe"
-customer1_melons = 5
-customer1_paid = 5.00
+	if amount_paid < total_cost:
+		print cust_name, "paid %.2f, %.2f less than total cost of %.2f" % (amount_paid, (total_cost-amount_paid), total_cost)
+		return False
+	elif amount_paid > total_cost:
+		print cust_name, "paid %.2f, %.2f more than total cost of %.2f" % (amount_paid, (amount_paid-total_cost), total_cost)
+		return False
+	else:
+		return True
 
-customer2_name = "Frank"
-customer2_melons = 6
-customer2_paid = 6.00
 
-customer3_name = "Sally"
-customer3_melons = 3
-customer3_paid = 3.00
+def check_file(path):
+	the_file = open(path)
+	incorrect_payments = []
 
-customer4_name = "Sean"
-customer4_melons = 9
-customer4_paid = 9.50
+	for line in the_file:
+		line = line.rstrip()
 
-customer5_name = "David"
-customer5_melons = 4
-customer5_paid = 4.00
+		cust_id, cust_name, num_melons, amount_paid = line.split(",")
+		num_melons = int(num_melons)
+		amount_paid = float(amount_paid)
 
-customer6_name = "Ashley"
-customer6_melons = 3
-customer6_paid = 2.00
+		if check_payment_difference(cust_name, num_melons, amount_paid) == False:
+			incorrect_payments.append([cust_name,num_melons,amount_paid])
 
-customer1_expected = customer1_melons * melon_cost
-if customer1_expected != customer1_paid:
-    print customer1_name, "paid %.2f, expected %.2f"%(customer1_paid, customer1_expected)
+	print
+	print "Running list:"
 
-customer2_expected = customer2_melons * melon_cost
-if customer2_expected != customer2_paid:
-    print customer2_name, "paid %.2f, expected %.2f"%(customer2_paid, customer2_expected)
+	return incorrect_payments
 
-customer3_expected = customer3_melons * melon_cost
-if customer3_expected != customer3_paid:
-    print customer3_name, "paid %.2f, expected %.2f"%(customer3_paid, customer3_expected)
+print check_file("customer_orders.csv")
 
-customer4_expected = customer4_melons * melon_cost
-if customer4_expected != customer4_paid:
-    print customer4_name, "paid %.2f, expected %.2f"%(customer4_paid, customer4_expected)
 
-customer5_expected = customer5_melons * melon_cost
-if customer5_expected != customer5_paid:
-    print customer5_name, "paid %.2f, expected %.2f"%(customer5_paid, customer5_expected)
-
-customer6_expected = customer6_melons * melon_cost
-if customer6_expected != customer6_paid:
-    print customer6_name, "paid %.2f, expected %.2f"%(customer6_paid, customer6_expected)
