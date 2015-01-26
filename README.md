@@ -1,2 +1,2 @@
 # hb_labs
-Exercises worked on during Hackbright fellowship  
+Exercises and projects worked on during Hackbright fellowship. These projects are in their final versions. For commit history, the original repos can be found in the "Repositories" section of my GitHub profile.
