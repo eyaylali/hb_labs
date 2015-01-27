@@ -254,19 +254,9 @@ def word_length(words):
 
 
 def adv_word_length_sorted_words(words):
-    length_tally = {}
-
-    for word in words:
-        if len(word) not in length_tally:
-            length_tally[len(word)] = [word]
-        else:
-            length_tally[len(word)] = length_tally[len(word)] + [word]
-
-    list1 = length_tally.items()
-    asc_list = sorted(list1)
-
-    for i in range(len(asc_list)):
-        asc_list[i][1].sort()
+    
+    length_tally = map(lambda word: (len(word),word) ,words)
+    asc_list = sorted(length_tally, key=lambda (x,y):(-x,y))
     print asc_list
 
     """Given list of words, return list of ascending [(len, [sorted-words])].
