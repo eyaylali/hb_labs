@@ -109,22 +109,11 @@ def common_items(list1, list2):
 
 def unique_common_items(list1, list2):
 
-    final_list = []
-    counter = 1
-    for word1 in list1:
-        for word2 in list1[counter:]:
-            if word1 == word2:
-                del list1[counter]
-                counter += 1
-            else:
-                counter += 1
-                
-    for word1 in list1:
-        for word2 in list2:
-            if word1 == word2:
-                final_list.append(word1)
+    set1 = set(list1)
+    set2 = set(list2)
 
-    return final_list
+    return set1.intersection(list2)
+
 
     """Produce the set of *unique* common items in two lists.
 
@@ -192,15 +181,26 @@ def sum_zero(list1):
 
 def find_duplicates(words):
 
-    counter = 1
+    set1= set([])
+
     for word1 in words:
-        for word2 in words[counter:]:
-            if word1 == word2:
-                del words[counter]
-                counter += 1
-            else:
-                counter += 1
-    return words
+        set1.add(word1)
+
+    return set1
+
+
+
+
+
+
+
+    #     for word2 in words[counter:]:
+    #         if word1 == word2:
+    #             del words[counter]
+    #             counter += 1
+    #         else:
+    #             counter += 1
+    # return words
 
 
     """Given a list of words, return the list with duplicates removed.
