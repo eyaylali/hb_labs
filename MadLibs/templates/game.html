@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game</title>
+    <link rel="stylesheet" href="/static/madlibs.css">
+</head>
+<body>
+<h1>Make a MadLib</h1>
+<p>Welcome to MadLibs! Please fill in all fields below, and we'll tell you a story.</p>
+<form action="/madlib">
+    
+    <label><strong>Your Name:</strong> <input type="text" name="username"></label><br>
+    
+    <label><strong>Color: </strong><input type="text" name="color"></label><br>
+    
+    <label><strong>Noun: </strong><input type="text" name="noun"></label><br>
+    
+    <label><strong>Verb (past tense): </strong><input type="text" name="verb"></label><br>
+
+    <label><strong>Adjective: </strong><input type="text" name="adjective"></label><br>
+    
+    <label><strong>Person: </strong><input type="text" name="person"></label><br>
+
+    <strong>Fave Justin: </strong><select name="justin">
+        <label><option value="Justin Timberlake">Timberlake</option></label>
+        <label><option value="Justin Bieber">Bieber</option></label>
+        <label><option value="Justin Long">Long</option></label>
+    </select><br>
+
+    <strong>Choose a direction: </strong>
+    <label><input type="radio" name="direction" value="left">Left</label>
+    <label><input type="radio" name="direction" value="right">Right</label>
+    <br>
+
+    <strong>Your feelings:</strong>
+    <label><input type="checkbox" name="feelings" value="happy">Happy!</label>
+    <label><input type="checkbox" name="feelings" value="stressed">STRESSED.</label>
+    <label><input type ="checkbox" name="feelings" value="daydreamy">~Daydreamy~</label>
+
+<br><div class="home"><input type="submit" id="submit" value="Tell me a story!!"><div>
+</form>
+</body>
+</html>
