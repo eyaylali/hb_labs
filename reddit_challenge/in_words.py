@@ -1,41 +1,28 @@
 from sys import argv
-from collections import defaultdict
 
 def unpack(path):
-	working_file = open(path)
+    return {w.strip() for w in open(path)}
 
-	working_list = []
+def iter_list(working_set):
 
-	for line in working_file:
-		word = line.strip()
-		working_list.append(word)
-	return working_list
+    working_dict = {}
 
-def iter_list(working_list):
+    for counter, word in enumerate(working_set):
+        for i in range(len(word) - 1):
+            for j in range(i + 2, (len(word) + 1)):
+                if word[i:j] in working_set:
+                    working_dict[word] = working_dict.get(word, 0) + 1
 
-	working_set = set(working_list)
-	working_dict = {}
-
-	counter = 0
-	while counter < len(working_list):
-		for i in range(len(working_list[counter])):
-				for j in range(i+2, (len(working_list[counter])+1)):
-					# print working_list[counter][i:j]
-					if working_list[counter][i:j] in working_set:
-						working_dict.setdefault(working_list[counter], 0) + 1 #not working
-		counter += 1
-
-	return working_dict.items()
+    return working_dict
 
 def return_max(final_list):
-	output = max(final_list, key=lambda x: x[1])
-	return output
+    output = max(final_list, key=lambda x: final_list[x])
 
 def main(input_file):
-	working_list = unpack(input_file)
-	words_with_count = iter_list(working_list)
-	list_most_words = return_max(words_with_count)
-	print list_most_words
+    working_list = unpack(input_file)
+    words_with_count = iter_list(working_list)
+    list_most_words = return_max(words_with_count)
+    print list_most_words
 
 if __name__ == "__main__":
     input_file = argv[1]
