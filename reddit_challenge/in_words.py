@@ -17,6 +17,7 @@ def iter_list(working_set):
 
 def return_max(final_list):
     output = max(final_list, key=lambda x: final_list[x])
+    return output
 
 def main(input_file):
     working_list = unpack(input_file)
@@ -27,3 +28,5 @@ def main(input_file):
 if __name__ == "__main__":
     input_file = argv[1]
     main(input_file)
+
+
