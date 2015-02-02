@@ -3,13 +3,26 @@
 <head>
   <title>Welcome to MadLibs</title>
   <link rel="stylesheet" href="/static/madlibs.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
     <h1>Welcome to MadLibs</h1>
     <p>Would you like to play a game?</p>
-    <form class="home" action="/game">
+    <form class="home" id="letsplay" action="/game">
         <label><input type="radio" name="choice" value="yes">Yes<br></label>
         <label><input type="radio" name="choice" value="no">No<br></label>
+
+
+<script type="text/javascript">
+//not working
+$("#letsplay").submit(function(evt) {
+    if ($("[name=choice]:checked").length) === 0
+        alert('And I thought I was indecisive!');
+        return false;
+        }
+});
+</script>
+
         <label><input type="submit" value="Let's go!" id="submit"></label>
     </form>
 </body>

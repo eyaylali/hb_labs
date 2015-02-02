@@ -3,41 +3,65 @@
 <head>
     <title>Game</title>
     <link rel="stylesheet" href="/static/madlibs.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
 <h1>Make a MadLib</h1>
 <p>Welcome to MadLibs! Please fill in all fields below, and we'll tell you a story.</p>
-<form action="/madlib">
-    
-    <label><strong>Your Name:</strong> <input type="text" name="username"></label><br>
-    
-    <label><strong>Color: </strong><input type="text" name="color"></label><br>
-    
-    <label><strong>Noun: </strong><input type="text" name="noun"></label><br>
-    
-    <label><strong>Verb (past tense): </strong><input type="text" name="verb"></label><br>
 
-    <label><strong>Adjective: </strong><input type="text" name="adjective"></label><br>
+<form class="madform" action="/madlib" id="madlib" method="POST">
     
-    <label><strong>Person: </strong><input type="text" name="person"></label><br>
+    <label><strong>Your Name:</strong> <input type="text" id="username" name="username"></label><br><br>
+
+    <label><strong>Noun: </strong><input type="text" id="noun1" name="noun1"></label><br><br>
+
+    <label><strong>Noun: </strong><input type="text" id="noun2" name="noun2"></label><br><br>
+
+    <label><strong>Verb (present tense): </strong><input type="text" id="presentverb1" name="presentverb1"></label><br><br>
+
+    <label><strong>Verb (present tense): </strong><input type="text" id="presentverb2" name="presentverb2"></label><br><br>
+
+    <label><strong>Verb (past tense): </strong><input type="text" id="pastverb1" name="pastverb1"></label><br><br>
+
+    <label><strong>Verb (past tense): </strong><input type="text" id="pastverb2" name="pastverb2"></label><br><br>
+
+    <label><strong>Adjective: </strong><input type="text" id="adjective" name="adjective"></label><br><br>
+    
+    <label><strong>Person: </strong><input type="text" id="person" name="person"></label><br><br>
 
     <strong>Fave Justin: </strong><select name="justin">
         <label><option value="Justin Timberlake">Timberlake</option></label>
         <label><option value="Justin Bieber">Bieber</option></label>
-        <label><option value="Justin Long">Long</option></label>
-    </select><br>
-
-    <strong>Choose a direction: </strong>
-    <label><input type="radio" name="direction" value="left">Left</label>
-    <label><input type="radio" name="direction" value="right">Right</label>
-    <br>
+    </select><br><br>
 
     <strong>Your feelings:</strong>
     <label><input type="checkbox" name="feelings" value="happy">Happy!</label>
     <label><input type="checkbox" name="feelings" value="stressed">STRESSED.</label>
     <label><input type ="checkbox" name="feelings" value="daydreamy">~Daydreamy~</label>
 
-<br><div class="home"><input type="submit" id="submit" value="Tell me a story!!"><div>
+
+<script type="text/javascript">
+
+$("#madlib").submit(function(evt) {
+    if ($.trim($("#username").val()) === "" 
+        || $.trim($("#noun1").val()) === "" 
+        || $.trim($("#noun2").val()) === "" 
+        || $.trim($("#presentverb1").val()) === "" 
+        || $.trim($("#presentverb2").val()) === "" 
+        || $.trim($("#pastverb1").val()) === "" 
+        || $.trim($("#pastverb2").val()) === "" 
+        || $.trim($("#adjective").val()) === ""
+        || $("[name=feelings]:checked").length < 1  
+        || $.trim($("#person").val()) === "" ) {
+        alert('You must fill out all of the fields!');
+        return false;
+        }
+});
+
+</script>
+
+<br><br>
+<div class="home"><input type="submit" id="submit" value="Tell me a story!!"></div>
 </form>
 </body>
 </html>

@@ -13,6 +13,10 @@
 
 <p>When <strong>{{ username }}</strong> woke up, <strong>{{ person }}</strong> confirmed that it was NOT just a dream, but <strong>{{ justin }}</strong> was nowhere to be seen.</p>
 
+<div id="thanks">
+    <em><p>Thanks for playing, <strong>{{ username }}</strong>! Your MadLib was {% for compliment in compliments %} {{ compliment }}! {% endfor %}</p></em>
+</div>
+
 <form action="/game">
 <div class="home"><input type="submit" id="submit" value="Play Again"><div class="home">
 </form>

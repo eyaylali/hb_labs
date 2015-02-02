@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ username }}'s Boyfriend</title>
+    <link rel="stylesheet" href="/static/madlibs.css">
+</head>
+<body>
+<h1><strong>{{ username}}'s</strong> Boyfriend</h1>
+
+<p>If I was your <strong>{{ noun1 }}</strong>, I'd never let you <strong>{{ presentverb1 }}</strong><br>
+I can take you places you ain't never been before<br>
+<strong>{{ username }}</strong> take a chance or you'll never ever know<br>
+I got <strong>{{ noun2 }}</strong> in my hands that I'd really like to blow<br>
+Swag swag swag, on <strong>{{ person }}</strong><br>
+Chillin by the fire while we eatin' fondue<br>
+I dunno about me but I <strong>{{ presentverb2 }}</strong> about you<br>
+So say hello to falsetto in three two swag</p>
+
+<p>I'd like to be everything you want<br>
+Hey <strong>{{ username }}</strong>, let me talk to you</p>
+
+<p>If I was your <strong>{{ noun1 }}</strong>, I'd never let you <strong>{{ presentverb1 }}</strong><br>
+Keep you on my arm <strong>{{ username }}</strong>, you'd never be <strong>{{ feelings }}</strong><br>
+I can be a <strong>{{ adjective }}</strong> gentleman, anything you want<br>
+If I was your <strong>{{ noun1 }}</strong>, I'd never let you <strong>{{ presentverb1 }}</strong>, I'd never let you <strong>{{ presentverb1 }}</strong></p>
+
+<div id="thanks">
+    <em><p>Thanks for playing, <strong>{{ username }}</strong>! Your MadLib was {% for compliment in compliments %} {{ compliment }}! {% endfor %}</p></em>
+</div>
+
+<form action="/game">
+<div class="home"><input type="submit" id="submit" value="Play Again"><div class="home">
+</form>
+
+</body>
+</html>

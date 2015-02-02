@@ -15,12 +15,12 @@ h1, p {
 #submit {
     background-color: black;
     color: #ff1d8e;
-    padding: 5px 10px;
+    padding: 10px 15px;
     margin: 15px auto;
     border-radius: 10px;
     display: inline-block;
     text-align: center;
-/*    text-align: center;
+    font-size: 0.8em;
 */}
 
 #submit:hover{
@@ -31,9 +31,11 @@ h1, p {
 .home {
     text-align: center;
 }
-/*
-.button{
-    display: inline-block;
-    text-align: center;
+
+#thanks {
+    font-size: 0.8em;
 }
-*/
+
+.madform {
+    margin-top: 35px;
+}

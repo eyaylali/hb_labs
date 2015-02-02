@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ username }}'s Baby</title>
+    <link rel="stylesheet" href="/static/madlibs.css">
+</head>
+<body>
+<h1><strong>{{ username}}'s</strong> Baby</h1>
+
+<p>Oh Whoa<br>
+Oh Whoa<br>
+Oh Whoa</p>
+
+<p>You know you <strong>{{ presentverb1 }}</strong> me, I know you care<br>
+Just shout whenever, and I'll be there<br>
+You are my love, you are my <strong>{{ adjective }}</strong> heart<br>
+And we will never, ever, ever be apart</p>
+
+<p>Are we an item? <strong>{{ username }}</strong>, quit playing<br>
+"We're just <strong>{{ feelings }}</strong>," what are you saying<br>
+Said "there's another," and <strong>{{ pastverb2 }}</strong> right in my eyes<br>
+My first love <strong>{{ pastverb1 }}</strong> my heart for the first time</p>
+
+<p>And I was like <strong>{{ noun1 }}</strong>, <strong>{{ noun1 }}</strong>, <strong>{{ noun1 }}</strong>, oh<br>
+Like <strong>{{ noun1 }}</strong>, <strong>{{ noun1 }}</strong>, <strong>{{ noun1 }}</strong>, oh<br>
+Like <strong>{{ noun1 }}</strong>, <strong>{{ noun1 }}</strong>, <strong>{{ noun1 }}</strong>, oh<br>
+I thought you'd always be mine, mine</p>
+
+<div id="thanks">
+    <em><p>Thanks for playing, <strong>{{ username }}</strong>! Your MadLib was {% for compliment in compliments %} {{ compliment }}! {% endfor %}</p></em>
+</div>
+
+<form action="/game">
+<div class="home"><input type="submit" id="submit" value="Play Again"><div class="home">
+</form>
+
+</body>
+</html>

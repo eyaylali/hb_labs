@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cry me a {{ noun2 }}</title>
+    <link rel="stylesheet" href="/static/madlibs.css">
+</head>
+<body>
+<h1>Cry me a <strong>{{ noun2 }}</strong></h1>
+
+<p>Hey <strong>{{ username }}</strong>, is <strong>{{ person }}</strong> everything you wanted in a man?<br>
+You know I gave you the <strong>{{ noun2 }}</strong><br>
+You had me in the<strong>{{ adjective }}</strong> palm of your hand<br>
+So why your love <strong>{{ pastverb1 }}</strong> away<br>
+I just can't seem to understand<br>
+Thought it was me and you <strong>{{ username }}</strong><br>
+Me and you until the end<br>
+But I guess I was wrong</p>
+
+<p>Don't want to <strong>{{ presentverb1 }}</strong> about it<br>
+Don't want to <strong>{{ presentverb2 }}</strong> about it<br>
+I'm just so sick about it<br>
+Can't believe it's ending this way<br>
+Just so <strong>{{ pastverb2 }}</strong> about it<br>
+Feeling <strong>{{ feelings }}</strong> about it<br>
+I just can't do without <strong>{{ noun1 }}</strong><br>
+Tell me is this fair?</p>
+
+<p>What goes around, goes around, goes around<br>
+Comes all the way back around</p>
+
+<div id="thanks">
+    <em><p>Thanks for playing, <strong>{{ username }}</strong>! Your MadLib was {% for compliment in compliments %} {{ compliment }}! {% endfor %}</p></em>
+</div>
+
+
+<form action="/game">
+<div class="home"><input type="submit" id="submit" value="Play Again"><div class="home">
+</form>
+
+
+</body>
+</html>
