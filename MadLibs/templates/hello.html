@@ -16,7 +16,7 @@
 <script type="text/javascript">
 //not working
 $("#letsplay").submit(function(evt) {
-    if ($("[name=choice]:checked").length) === 0
+    if ($("[name=choice]:checked").length === 0) {
         alert('And I thought I was indecisive!');
         return false;
         }
